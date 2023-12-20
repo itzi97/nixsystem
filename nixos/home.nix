@@ -1,5 +1,4 @@
 { config, pkgs, ... }:
-
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -43,7 +42,12 @@
     # Editor stuff (formatters, fonts, language servers)
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
     # neovim
+    nixfmt
     stylua
+
+    # C/C++
+    gcc
+    cmake
 
     # Python
     (python39.withPackages (ps: with ps; [
@@ -68,6 +72,10 @@
       flake8
     ]))
 
+    # Rust
+    cargo
+    rustc
+
     # Office
     inkscape
     megasync
@@ -80,6 +88,7 @@
 
     # TexLive
     texlive.combined.scheme-full
+    sage
     sagetex
 
   ];
